@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaobai.dao.UserDao">
+    <select id="getUserList" resultType="com.xiaobai.pojo.User">
+        select * from mybatis.user
+    </select>
+    <select id="getById" parameterType="int" resultType="com.xiaobai.pojo.User">
+        select * from mybatis.user where id=#{id}
+    </select>
+    <insert id="Add" parameterType="com.xiaobai.pojo.User">
+        insert into mybatis.user values(#{id},#{name},#{pwd})
+    </insert>
+    <update id="Update" parameterType="com.xiaobai.pojo.User">
+        update mybatis.user set name=#{name} where id=#{id}
+    </update>
+</mapper>
