@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><!--注意要添加xmlns:th才能添加thymeleaf的标签-->
+<head th:fragment="commonheader">
+  <!--common-->
+  <link href="css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
+  <link href="css/style-responsive.css" th:href="@{/css/style-responsive.css}" rel="stylesheet">
+  ...
+</head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+  <meta name="description" content="">
+  <meta name="author" content="ThemeBucket">
+  <link rel="shortcut icon" href="#" type="image/png">
+
+  <title>AdminX</title>
+
+  <!--icheck-->
+  <link href="js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
+  <link href="js/iCheck/skins/square/square.css" rel="stylesheet">
+  <link href="js/iCheck/skins/square/red.css" rel="stylesheet">
+  <link href="js/iCheck/skins/square/blue.css" rel="stylesheet">
+
+  <!--dashboard calendar-->
+  <link href="css/clndr.css" rel="stylesheet">
+
+
+  <!--common-->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style-responsive.css" rel="stylesheet">
+
+
+
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<!-- left side start-->
+<div id="leftmenu" class="left-side sticky-left-side">
+  ...
+
+  <div class="left-side-inner">
+    ...
+
+    <!--sidebar nav start-->
+    <ul class="nav nav-pills nav-stacked custom-nav">
+      <li><a th:href="@{/main.html}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+      ...
+      <li class="menu-list nav-active"><a href="#"><i class="fa fa-th-list"></i> <span>Data Tables</span></a>
+        <ul class="sub-menu-list">
+          <li><a th:href="@{/basic_table}"> Basic Table</a></li>
+          <li><a th:href="@{/dynamic_table}"> Advanced Table</a></li>
+          <li><a th:href="@{/responsive_table}"> Responsive Table</a></li>
+          <li><a th:href="@{/editable_table}"> Edit Table</a></li>
+        </ul>
+      </li>
+      ...
+    </ul>
+    <!--sidebar nav end-->
+  </div>
+</div>
+<!-- left side end-->
+
+
+<!-- header section start-->
+<div th:fragment="headermenu" class="header-section">
+
+  <!--toggle button start-->
+  <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+  <!--toggle button end-->
+  ...
+
+</div>
+<!-- header section end-->
+
+<div id="commonscript">
+  <!-- Placed js at the end of the document so the pages load faster -->
+  <script th:src="@{/js/jquery-1.10.2.min.js}"></script>
+  <script th:src="@{/js/jquery-ui-1.9.2.custom.min.js}"></script>
+  <script th:src="@{/js/jquery-migrate-1.2.1.min.js}"></script>
+  <script th:src="@{/js/bootstrap.min.js}"></script>
+  <script th:src="@{/js/modernizr.min.js}"></script>
+  <script th:src="@{/js/jquery.nicescroll.js}"></script>
+  <!--common scripts for all pages-->
+  <script th:src="@{/js/scripts.js}"></script>
+</div>
+</body>
+</html>
