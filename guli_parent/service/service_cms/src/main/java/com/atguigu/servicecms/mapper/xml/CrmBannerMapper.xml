@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.servicecms.mapper.CrmBannerMapper">
+    <!-- 查询所有的订单数据 -->
+    <!-- resultMap:填入配置的resultMap标签的id值 -->
+    <select id="crm" resultMap="orderResultMap">
+        SELECT id, title,age
+               FROM crm_banner,user where crm_banner.id=user.did;
+    </select>
+    <!-- resultMap最终还是要将结果映射到pojo上，type就是指定映射到哪一个pojo -->
+    <!-- id：设置ResultMap的id -->
+    <resultMap type="com.atguigu.servicecms.entity.CrmBanner" id="orderResultMap">
+        <!-- 定义主键 ,非常重要。如果是多个字段,则定义多个id -->
+        <!-- property：主键在pojo中的属性名 -->
+        <!-- column：主键在数据库中的列名 -->
+        <id property="id" column="CrmBanner.id" />
+        <!-- 定义普通属性 -->
+        <result property="title" column="title" />
+        <association property="user" javaType="com.atguigu.servicecms.entity.User" >
+            <id property="id" column="did"/>
+            <result property="age" column="age"/>
+        </association>
+    </resultMap>
+<!--    <select id="crm" resultType="com.atguigu.servicecms.entity.CrmBanner">-->
+<!--        SELECT id, title,age-->
+<!--        FROM crm_banner,user where crm_banner.id=user.did;-->
+<!--    </select>-->
+</mapper>
